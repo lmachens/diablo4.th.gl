@@ -28,15 +28,16 @@ export async function middleware(req: NextRequest) {
     let res: NextResponse<unknown>;
     if (pathLanguage === DEFAULT_LOCALE) {
       const path = req.nextUrl.pathname.replace(`/${pathLanguage}`, "") || "/";
-
       res = NextResponse.redirect(new URL(path + req.nextUrl.search, req.url));
     } else {
       res = NextResponse.next();
     }
-    res.cookies.set(COOKIE_NAME, pathLanguage, {
-      maxAge: 60 * 60 * 24 * 30,
-    });
-    return res;
+    if (req.nextUrl.pathname === `/${pathLanguage}`) {
+      res.cookies.set(COOKIE_NAME, pathLanguage, {
+        maxAge: 60 * 60 * 24 * 30,
+      });
+      return res;
+    }
   } else if (userLanguage !== DEFAULT_LOCALE) {
     return NextResponse.redirect(
       new URL(
@@ -54,10 +55,12 @@ export const config = {
     "/de",
     "/fr",
     "/ru",
+    "/es",
     "/en/(nodes/.*)",
     "/de/(nodes/.*)",
     "/fr/(nodes/.*)",
     "/ru/(nodes/.*)",
+    "/es/(nodes/.*)",
     "/(nodes/.*)",
   ],
 };
