@@ -1,19 +1,19 @@
 import { ICONS } from "../lib/icons";
-import { useSettingsStore } from "../lib/storage";
+import { useGlobalSettingsStore } from "../lib/storage";
 
 export default function useFilters() {
-  const settingsStore = useSettingsStore();
+  const globalSettingsStore = useGlobalSettingsStore();
 
   const setFilters = (newFilters: string[]) => {
     newFilters = newFilters.filter((f) => f in ICONS);
-    settingsStore.setFilters(newFilters);
+    globalSettingsStore.setFilters(newFilters);
   };
 
   const toggleFilter = (key: string) => {
-    const newFilters = settingsStore.filters.includes(key)
-      ? settingsStore.filters.filter((f) => f !== key)
-      : [...settingsStore.filters, key];
+    const newFilters = globalSettingsStore.filters.includes(key)
+      ? globalSettingsStore.filters.filter((f) => f !== key)
+      : [...globalSettingsStore.filters, key];
     setFilters(newFilters);
   };
-  return [settingsStore.filters, toggleFilter, setFilters] as const;
+  return [globalSettingsStore.filters, toggleFilter, setFilters] as const;
 }

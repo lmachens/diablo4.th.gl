@@ -11,7 +11,7 @@ import Territories from "../components/(map)/territories";
 import Tiles from "../components/(map)/tiles";
 import PlausibleTracker from "../components/plausible-tracker";
 import SearchParams from "../components/search-params";
-import { isLang, loadDictionary } from "../lib/i18n";
+import { DEFAULT_LOCALE, LOCALES, isLang, loadDictionary } from "../lib/i18n";
 
 export { generateMetadata } from "@/app/lib/meta";
 
@@ -39,9 +39,16 @@ function Layout({
   return (
     <html lang={lang}>
       <body
-        className={`${inter.className} h-screen bg-black text-white antialiased select-none`}
+        className={`${inter.className} h-screen bg-black text-white antialiased select-none  overflow-hidden`}
       >
-        <I18NProvider value={dict}>
+        <I18NProvider
+          value={{
+            defaultLocale: DEFAULT_LOCALE,
+            locale: lang,
+            locales: LOCALES,
+            dict,
+          }}
+        >
           <Map>
             <Tiles />
             <Territories />

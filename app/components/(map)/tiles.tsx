@@ -39,7 +39,7 @@ export default function Tiles() {
     return () => {
       canvasLayer.remove();
     };
-  }, [isOverlay, settingsStore.overlayTransparentMode]);
+  }, [isOverlay, settingsStore.overlayTransparentMode, map]);
 
   return <></>;
 }

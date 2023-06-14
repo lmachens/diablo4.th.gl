@@ -2,7 +2,10 @@
 import { useOverwolfRouter } from "@/app/(overwolf)/components/overwolf-router";
 import { ICONS } from "@/app/lib/icons";
 import nodes, { getID } from "@/app/lib/nodes";
-import { useDiscoveredNodesStore, useSettingsStore } from "@/app/lib/storage";
+import {
+  useDiscoveredNodesStore,
+  useGlobalSettingsStore,
+} from "@/app/lib/storage";
 import { getTerritoryByPoint } from "@/app/lib/territories";
 import leaflet from "leaflet";
 import { useParams, useSearchParams } from "next/navigation";
@@ -27,7 +30,7 @@ export default function Nodes() {
     ).toLowerCase();
   }, [searchParams, isOverwolf && router.value.search]);
   const dict = useDict();
-  const iconSize = useSettingsStore((state) => state.iconSize);
+  const iconSize = useGlobalSettingsStore((state) => state.iconSize);
 
   const paramsName = isOverwolf ? router.value.name : params.name;
   const paramsCoordinates = isOverwolf
@@ -193,7 +196,7 @@ export default function Nodes() {
         group.remove();
       });
     };
-  }, []);
+  }, [dict]);
 
   useEffect(() => {
     const highlightedGroup = new leaflet.FeatureGroup();

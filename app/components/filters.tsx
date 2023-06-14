@@ -17,7 +17,7 @@ export default function Filters() {
             setFilters(ALL_FILTERS);
           }}
         >
-          Show All
+          {dict.nodes.showAll}
         </button>
         <button
           className="p-2 uppercase hover:text-white  w-1/2"
@@ -25,7 +25,7 @@ export default function Filters() {
             setFilters([]);
           }}
         >
-          Hide All
+          {dict.nodes.hideAll}
         </button>
       </div>
       <div className="flex flex-wrap">

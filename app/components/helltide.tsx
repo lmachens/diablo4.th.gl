@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useDict } from "./(i18n)/i18n-provider";
 
 const EVENT_INTERVAL_MINUTES = 2 * 60 + 15;
 const EVENT_DURATION_MINUTES = 60;
@@ -36,6 +37,7 @@ function calculateTimeLeft() {
 }
 
 export default function Helltide() {
+  const dict = useDict();
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
 
   useEffect(() => {
@@ -51,7 +53,7 @@ export default function Helltide() {
   return (
     <div className="text-gray-200 text-sm px-2.5 py-2.5 space-x-1 text-shadow bg-black bg-opacity-50 md:rounded-lg whitespace-nowrap">
       <span className="text-orange-400 uppercase">
-        {timeLeft.isActive ? "Helltide In Progress" : "Helltide Starts In"}
+        {timeLeft.isActive ? dict.helltide.inProgress : dict.helltide.startsIn}
       </span>
       <span>{timeLeft.value}</span>
     </div>

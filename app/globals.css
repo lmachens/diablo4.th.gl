@@ -50,3 +50,7 @@
 .locked > :not(.lock) {
   @apply pointer-events-none;
 }
+
+*[data-radix-popper-content-wrapper] {
+  @apply !z-[11000];
+}

@@ -1,10 +1,11 @@
 import { Metadata } from "next";
-import { loadDictionary } from "./i18n";
+import { API_BASE_URI } from "./env";
+import { DEFAULT_LOCALE, LOCALES, loadDictionary } from "./i18n";
 import nodes from "./nodes";
 import { getTerritoryByPoint } from "./territories";
 
 export function generateMetadata({
-  params: { lang, name },
+  params: { lang = DEFAULT_LOCALE, name },
 }: {
   params: { lang: string; name: string };
 }): Metadata {
@@ -41,17 +42,26 @@ export function generateMetadata({
     }
   }
 
+  let canonical = API_BASE_URI + (lang === DEFAULT_LOCALE ? "" : `/${lang}`);
+  if (name) {
+    canonical += `/nodes/${name}`;
+  }
+  const alternativeLanguages = LOCALES.reduce((acc, locale) => {
+    acc[locale] = API_BASE_URI + `/${locale}`;
+    if (name) {
+      acc[locale] += `/nodes/${name}`;
+    }
+    return acc;
+  }, {} as Record<string, string>);
+
   return {
     title: `${title} | ${dict.meta.subtitle} | diablo4.th.gl`,
     description: description,
     creator: "Leon Machens",
     themeColor: "black",
     alternates: {
-      canonical: "/",
-      languages: {
-        en: "/",
-        de: "/de",
-      },
+      canonical: canonical,
+      languages: alternativeLanguages,
     },
     openGraph: {
       title: `Sanctuary | ${dict.meta.subtitle} | diablo4.th.gl`,

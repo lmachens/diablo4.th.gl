@@ -1,5 +1,5 @@
 "use client";
-import { useSettingsStore } from "@/app/lib/storage";
+import { useGlobalSettingsStore } from "@/app/lib/storage";
 import { territories } from "@/app/lib/territories";
 import leaflet from "leaflet";
 import { useEffect } from "react";
@@ -9,7 +9,7 @@ import { useMap } from "./map";
 export default function Territories() {
   const map = useMap();
   const dict = useDict();
-  const showTerritoryNames = useSettingsStore(
+  const showTerritoryNames = useGlobalSettingsStore(
     (state) => state.showTerritoryNames
   );
 
@@ -47,7 +47,7 @@ export default function Territories() {
       featureGroup.removeFrom(map);
       featureGroup.clearLayers();
     };
-  }, [showTerritoryNames]);
+  }, [showTerritoryNames, dict]);
 
   return <></>;
 }

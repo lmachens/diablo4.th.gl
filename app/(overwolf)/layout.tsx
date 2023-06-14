@@ -1,9 +1,7 @@
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { I18NProvider } from "../components/(i18n)/i18n-provider";
 import PlausibleTracker from "../components/plausible-tracker";
 import "../globals.css";
-import { loadDictionary } from "../lib/i18n";
 import { OverwolfRouterProvider } from "./components/overwolf-router";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,16 +16,12 @@ export function generateMetadata(): Metadata {
 }
 
 function OverwolfLayout({ children }: { children: React.ReactNode }) {
-  const dict = loadDictionary("en");
-
   return (
-    <html lang="en">
+    <html>
       <body
-        className={`${inter.className} h-screen flex flex-col text-white app antialiased select-none`}
+        className={`${inter.className} h-screen flex flex-col text-white app antialiased select-none overflow-hidden`}
       >
-        <OverwolfRouterProvider>
-          <I18NProvider value={dict}>{children}</I18NProvider>
-        </OverwolfRouterProvider>
+        <OverwolfRouterProvider>{children}</OverwolfRouterProvider>
         <PlausibleTracker
           domain={process.env.NEXT_PUBLIC_PLAUSIBLE_OVERWOLF_DOMAIN}
           apiHost={process.env.NEXT_PUBLIC_PLAUSIBLE_API_HOST}

@@ -82,7 +82,8 @@ export default function Map({ children }: { children?: React.ReactNode }) {
     }
 
     return () => {
-      map.remove();
+      setMap(null);
+      // map.remove();
     };
   }, []);
 

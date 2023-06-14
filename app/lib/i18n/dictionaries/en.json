@@ -3,10 +3,25 @@
     "subtitle": "Diablo 4 Map",
     "description": "Maximize your Diablo 4 gameplay in Sancturay with this Open Source Diablo 4 map! Discover locations, altars, cellars, dungeons, waypoints & more."
   },
+  "menu": {
+    "patronInfo": "Get rid of ads and support me on Patreon",
+    "becomePatron": "Become a Patron",
+    "linkPatreon": "Link your Patreon account",
+    "disconnectPatreon": "Disconnect your Patreon account",
+    "discoveredNodes": "Discovered Nodes",
+    "settings": "Settings",
+    "territories": "Territories",
+    "apps": "Apps",
+    "community": "Community",
+    "discover": "Discover",
+    "contribute": "Contribute"
+  },
   "search": {
     "placeholder": "Search by name or type"
   },
   "nodes": {
+    "showAll": "Show All",
+    "hideAll": "Hide All",
     "altars": "Altars of Lilith",
     "cellars": "Cellars",
     "dungeons": "Dungeons",
@@ -17,6 +32,10 @@
     "occultists": "Occultists",
     "stableMasters": "Stable Masters",
     "waypoints": "Waypoints"
+  },
+  "helltide": {
+    "inProgress": "Helltide In Progress",
+    "startsIn": "Helltide Starts In"
   },
   "territories": {
     "Scos_WorldEvent_03": "Carrowcrest Ruins",

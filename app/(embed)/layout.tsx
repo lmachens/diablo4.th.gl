@@ -9,7 +9,7 @@ import { I18NProvider } from "../components/(i18n)/i18n-provider";
 import Nodes from "../components/(map)/nodes";
 import Tiles from "../components/(map)/tiles";
 import PlausibleTracker from "../components/plausible-tracker";
-import { isLang, loadDictionary } from "../lib/i18n";
+import { DEFAULT_LOCALE, LOCALES, isLang, loadDictionary } from "../lib/i18n";
 
 export { generateMetadata } from "@/app/lib/meta";
 
@@ -32,8 +32,17 @@ function Layout({
 
   return (
     <html lang={lang}>
-      <body className={`${inter.className} h-screen bg-black text-white`}>
-        <I18NProvider value={dict}>
+      <body
+        className={`${inter.className} h-screen bg-black text-white  overflow-hidden`}
+      >
+        <I18NProvider
+          value={{
+            dict,
+            defaultLocale: DEFAULT_LOCALE,
+            locale: lang,
+            locales: LOCALES,
+          }}
+        >
           <Map>
             <Tiles />
             <Nodes />

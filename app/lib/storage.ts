@@ -72,7 +72,8 @@ export const useAccountStore = create(
 
 withStorageDOMEvents(useAccountStore);
 
-export const useSettingsStore = create(
+// App and Website
+export const useGlobalSettingsStore = create(
   persist<{
     // App and Website
     showTerritoryNames: boolean;
@@ -85,17 +86,8 @@ export const useSettingsStore = create(
     toggleShowFilters: () => void;
     showTimers: boolean;
     toggleShowTimers: () => void;
-    // App only
     showSidebar: boolean;
     toggleShowSidebar: () => void;
-    overlayMode: boolean | null;
-    setOverlayMode: (overlayMode: boolean) => void;
-    overlayTransparentMode: boolean;
-    setOverlayTransparentMode: (overlayTransparentMode: boolean) => void;
-    windowOpacity: number;
-    setWindowOpacity: (windowOpacity: number) => void;
-    lockedWindow: boolean;
-    setLockedWindow: (lockedWindow: boolean) => void;
   }>(
     (set) => {
       let filters = ALL_FILTERS;
@@ -132,6 +124,39 @@ export const useSettingsStore = create(
           set((state) => ({
             showSidebar: !state.showSidebar,
           })),
+      };
+    },
+    {
+      name: "global-settings-storage",
+      merge: (persistentState: any, currentState) => {
+        if (
+          typeof overwolf === "undefined" &&
+          currentState.filters.length !== ALL_FILTERS.length
+        ) {
+          persistentState.filters = currentState.filters;
+        }
+        return { ...currentState, ...persistentState };
+      },
+    }
+  )
+);
+
+// App only
+export const useSettingsStore = create(
+  persist<{
+    overlayMode: boolean | null;
+    setOverlayMode: (overlayMode: boolean) => void;
+    overlayTransparentMode: boolean;
+    setOverlayTransparentMode: (overlayTransparentMode: boolean) => void;
+    windowOpacity: number;
+    setWindowOpacity: (windowOpacity: number) => void;
+    lockedWindow: boolean;
+    setLockedWindow: (lockedWindow: boolean) => void;
+    locale: string;
+    setLocale: (locale: string) => void;
+  }>(
+    (set) => {
+      return {
         overlayMode: null,
         setOverlayMode: (overlayMode) =>
           set({
@@ -144,19 +169,12 @@ export const useSettingsStore = create(
         setWindowOpacity: (windowOpacity) => set({ windowOpacity }),
         lockedWindow: false,
         setLockedWindow: (lockedWindow) => set({ lockedWindow }),
+        locale: "en",
+        setLocale: (locale) => set({ locale }),
       };
     },
     {
       name: "settings-storage",
-      merge: (persistentState: any, currentState) => {
-        if (
-          typeof overwolf === "undefined" &&
-          currentState.filters.length !== ALL_FILTERS.length
-        ) {
-          persistentState.filters = currentState.filters;
-        }
-        return { ...currentState, ...persistentState };
-      },
     }
   )
 );

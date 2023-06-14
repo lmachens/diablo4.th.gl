@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import { createContext, useContext, useState } from "react";
 
 type Value = {
-  lang: string | null;
   name: string | null;
   search: string | null;
   coordinates: string | null;
@@ -20,7 +19,6 @@ export const OverwolfRouterProvider = ({
   children: React.ReactNode;
 }) => {
   const [value, setValue] = useState<Value>({
-    lang: "en",
     name: null,
     search: null,
     coordinates: null,

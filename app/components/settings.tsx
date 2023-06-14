@@ -1,23 +1,23 @@
-import { useSettingsStore } from "../lib/storage";
+import { useGlobalSettingsStore } from "../lib/storage";
 import Toggle from "./toggle";
 
 export default function Settings() {
-  const settingsStore = useSettingsStore();
+  const globalSettingsStore = useGlobalSettingsStore();
 
   return (
     <>
       <div className="flex">
         <span className="w-1/2">Show Helltide Timer</span>
         <Toggle
-          checked={!!settingsStore.showTimers}
-          onChange={settingsStore.toggleShowTimers}
+          checked={!!globalSettingsStore.showTimers}
+          onChange={globalSettingsStore.toggleShowTimers}
         />
       </div>
       <div className="flex">
         <span className="w-1/2">Show Territory Names</span>
         <Toggle
-          checked={!!settingsStore.showTerritoryNames}
-          onChange={settingsStore.toggleShowTerritoryNames}
+          checked={!!globalSettingsStore.showTerritoryNames}
+          onChange={globalSettingsStore.toggleShowTerritoryNames}
         />
       </div>
       <div className="flex">
@@ -25,11 +25,13 @@ export default function Settings() {
         <input
           className="w-5/12"
           type="range"
-          value={settingsStore.iconSize}
+          value={globalSettingsStore.iconSize}
           min={0.4}
           max={2}
           step={0.1}
-          onChange={(event) => settingsStore.setIconSize(+event.target.value)}
+          onChange={(event) =>
+            globalSettingsStore.setIconSize(+event.target.value)
+          }
         />
       </div>
     </>

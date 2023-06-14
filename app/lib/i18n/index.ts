@@ -1,21 +1,26 @@
 import de from "./dictionaries/de.json";
 import en from "./dictionaries/en.json";
+import fr from "./dictionaries/fr.json";
+import ru from "./dictionaries/ru.json";
 
-export type DICT = typeof en | typeof de;
+export type DICT = typeof en | typeof de | typeof fr | typeof ru;
 const DICTIONARIES = {
   en,
   de,
+  fr,
+  ru,
 } as const;
 
+export const LOCALES = Object.keys(DICTIONARIES);
+export const DEFAULT_LOCALE = "en";
+
 export const isLang = (lang?: string) => {
-  return (
-    typeof lang !== "undefined" && Object.keys(DICTIONARIES).includes(lang)
-  );
+  return typeof lang !== "undefined" && LOCALES.includes(lang);
 };
 
-export const loadDictionary = (lang = "en") => {
+export const loadDictionary = (lang = DEFAULT_LOCALE) => {
   if (!isLang(lang)) {
-    return DICTIONARIES.en;
+    return DICTIONARIES[DEFAULT_LOCALE];
   }
 
   return DICTIONARIES[lang as keyof typeof DICTIONARIES];

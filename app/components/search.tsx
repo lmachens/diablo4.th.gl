@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useOverwolfRouter } from "../(overwolf)/components/overwolf-router";
 import { ICONS } from "../lib/icons";
 import { useUpdateSearchParams } from "../lib/search-params";
-import { useSettingsStore } from "../lib/storage";
+import { useGlobalSettingsStore, useSettingsStore } from "../lib/storage";
 import { useDict } from "./(i18n)/i18n-provider";
 import Filters from "./filters";
 import Helltide from "./helltide";
@@ -20,6 +20,7 @@ export default function Search() {
   const updateSearchParams = useUpdateSearchParams();
   const filters = useFilters();
   const settingsStore = useSettingsStore();
+  const globalSettingsStore = useGlobalSettingsStore();
 
   useEffect(() => {
     const handle = setTimeout(() => {
@@ -37,12 +38,12 @@ export default function Search() {
       {!settingsStore.lockedWindow && (
         <div
           className={`absolute top-0 z-[400] flex w-full md:w-auto transition-all duration-500 ${
-            settingsStore.showSidebar ? "md:left-[412px]" : "md:left-3"
+            globalSettingsStore.showSidebar ? "md:left-[412px]" : "md:left-3"
           } ${"value" in router ? "md:top-[42px]" : "md:top-3"}`}
         >
           <button
             className="menu flex absolute inset-y-0 left-0 items-center pl-2 text-gray-400 hover:text-gray-200"
-            onClick={settingsStore.toggleShowSidebar}
+            onClick={globalSettingsStore.toggleShowSidebar}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -108,9 +109,9 @@ export default function Search() {
           )}
           <button
             className={`flex absolute inset-y-0 right-0 items-center pr-2 text-gray-400 hover:text-gray-200 ${
-              settingsStore.showFilters ? "text-white" : ""
+              globalSettingsStore.showFilters ? "text-white" : ""
             }`}
-            onClick={settingsStore.toggleShowFilters}
+            onClick={globalSettingsStore.toggleShowFilters}
           >
             <svg
               className="block w-5"
@@ -130,12 +131,12 @@ export default function Search() {
             </svg>
           </button>
           <div className="absolute top-full w-full md:w-fit md:top-0 md:left-full md:ml-2 pointer-events-none">
-            {settingsStore.showTimers && <Helltide />}
+            {globalSettingsStore.showTimers && <Helltide />}
           </div>
           <div
             className={`absolute top-full text-sm w-full md:mt-1 md:space-y-2`}
           >
-            {settingsStore.showFilters && <Filters />}
+            {globalSettingsStore.showFilters && <Filters />}
           </div>
         </div>
       )}
