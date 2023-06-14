@@ -4,24 +4,24 @@
     "description": "¡Maximiza tu experiencia de juego en Diablo 4 en Sancturay con este mapa de Diablo 4 de código abierto! Descubre ubicaciones, altares, sótanos, mazmorras, puntos de referencia y más."
   },
   "menu": {
-    "patronInfo": "Get rid of ads and support me on Patreon",
-    "becomePatron": "Become a Patron",
-    "linkPatreon": "Link your Patreon account",
-    "disconnectPatreon": "Disconnect your Patreon account",
-    "discoveredNodes": "Discovered Nodes",
-    "settings": "Settings",
-    "territories": "Territories",
+    "patronInfo": "Deshazte de los anuncios y apóyame en Patreonn",
+    "becomePatron": "Conviértete en un patrocinador",
+    "linkPatreon": "Vincula tu cuenta de Patreon",
+    "disconnectPatreon": "Desconecta tu cuenta de Patreon",
+    "discoveredNodes": "Nodos descubiertos",
+    "settings": "Ajustes",
+    "territories": "Territorios",
     "apps": "Apps",
-    "community": "Community",
-    "discover": "Discover",
-    "contribute": "Contribute"
+    "community": "Comunidad",
+    "discover": "Descubrir",
+    "contribute": "Contribuir"
   },
   "search": {
     "placeholder": "Buscar por nombre o tipo"
   },
   "nodes": {
-    "showAll": "Show All",
-    "hideAll": "Hide All",
+    "showAll": "Mostrar todo",
+    "hideAll": "Ocultar todo",
     "altars": "Altar de Lilith",
     "cellars": "Sótanos",
     "dungeons": "Mazmorras",
@@ -34,8 +34,8 @@
     "waypoints": "Puntos de referencia"
   },
   "helltide": {
-    "inProgress": "Helltide In Progress",
-    "startsIn": "Helltide Starts In"
+    "inProgress": "Marea Sangrienta en progreso",
+    "startsIn": "Marea Sangrienta parte en"
   },
   "territories": {
     "Scos_WorldEvent_03": "Ruinas de Carrowcrest",
