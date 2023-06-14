@@ -1,12 +1,14 @@
 import de from "./dictionaries/de.json";
 import en from "./dictionaries/en.json";
+import es from "./dictionaries/es.json";
 import fr from "./dictionaries/fr.json";
 import ru from "./dictionaries/ru.json";
 
-export type DICT = typeof en | typeof de | typeof fr | typeof ru;
+export type DICT = typeof en | typeof de | typeof es | typeof fr | typeof ru;
 const DICTIONARIES = {
   en,
   de,
+  es,
   fr,
   ru,
 } as const;
