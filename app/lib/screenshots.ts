@@ -7,7 +7,7 @@ export async function takeScreenshot(url: string) {
   const browser = await puppeteer.launch({
     executablePath,
     args: edgeChromium.args,
-    headless: false,
+    headless: true,
   });
   const page = await browser.newPage();
   await page.setViewport({ width: 1200, height: 628 });

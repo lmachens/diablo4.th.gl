@@ -23,7 +23,7 @@
     "next": "13.4.4",
     "plausible-tracker": "0.3.8",
     "postcss": "8.4.24",
-    "puppeteer-core": "20.7.2",
+    "puppeteer-core": "10.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
