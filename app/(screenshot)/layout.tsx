@@ -18,6 +18,7 @@ const Map = dynamic(() => import("../components/(map)/map"), {
 });
 
 function Layout({
+  // children,
   params: { lang = "en" },
 }: {
   children: React.ReactNode;
@@ -32,7 +33,7 @@ function Layout({
   return (
     <html lang={lang}>
       <body
-        className={`${inter.className} h-screen bg-black text-white overflow-hidden print`}
+        className={`${inter.className} h-screen bg-black text-white  overflow-hidden`}
       >
         <I18NProvider
           value={{
@@ -63,7 +64,7 @@ function Layout({
               <path d="M9 4l0 13"></path>
               <path d="M15 7l0 13"></path>
             </svg>
-            diablo4.th.gl
+            Diablo 4 Map
           </a>
         </I18NProvider>
 

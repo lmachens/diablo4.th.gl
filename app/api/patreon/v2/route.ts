@@ -53,7 +53,6 @@ function getCurrentUser(token: PatreonToken) {
 }
 
 function isSupporter(currentUser: any) {
-  console.log(JSON.stringify(currentUser));
   return currentUser.included.some((data: any) => {
     return data.relationships?.currently_entitled_tiers?.data.some(
       (tier: any) => PATREON_TIER_IDS.includes(tier.id)

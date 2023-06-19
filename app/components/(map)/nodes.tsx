@@ -51,6 +51,8 @@ export default function Nodes() {
     Object.entries(nodes).forEach(([_type, items]) => {
       const type = _type as keyof typeof nodes;
       const group = leaflet.layerGroup();
+      group.addTo(map);
+
       items.forEach((item) => {
         const icon = ICONS[type];
         let isHighlighted = false;
@@ -144,7 +146,7 @@ export default function Nodes() {
           div.innerHTML = tooltipContent;
           lastDiscoveredButton = document.createElement("button");
           lastDiscoveredButton.className =
-            "mt-2 py-1 px-2 bg-neutral-900 rounded uppercase ";
+            "mt-2 py-1 px-2 bg-neutral-900 rounded uppercase hide-on-print";
           lastDiscoveredButton.innerText = isDiscovered
             ? "Unmark as discovered"
             : "Mark as discovered";
@@ -164,7 +166,7 @@ export default function Nodes() {
           };
           div.append(lastDiscoveredButton);
           const note = document.createElement("p");
-          note.className = "text-gray-300 text-xs italic mt-2";
+          note.className = "text-gray-300 text-xs italic mt-2 hide-on-print";
           note.innerHTML = "Right click to toggle discovered";
 
           div.append(note);
@@ -178,19 +180,25 @@ export default function Nodes() {
         });
 
         marker.addTo(group);
-
         if (isHighlighted && !search) {
-          map.setView([item.x, item.y], 5);
+          map.setView(marker.getLatLng(), 5);
         }
       });
 
       groups.push(group);
-      group.addTo(map);
     });
     Object.entries(spawnNodes).forEach(([_type, items]) => {
       const type = _type as keyof typeof spawnNodes;
       const group = leaflet.layerGroup();
+      group.addTo(map);
+
       items.forEach((item) => {
+        let isHighlighted = false;
+        if (selectedName && coordinates) {
+          isHighlighted =
+            item.x === coordinates[0] && item.y === coordinates[1];
+        }
+
         const icon = SPAWN_ICONS[type];
         const marker = new CanvasMarker([item.x, item.y], {
           id: item.id,
@@ -236,9 +244,11 @@ export default function Nodes() {
         });
 
         marker.addTo(group);
+        if (isHighlighted && !search) {
+          map.setView(marker.getLatLng(), 5);
+        }
       });
       groups.push(group);
-      group.addTo(map);
     });
 
     groups.forEach((group) => {

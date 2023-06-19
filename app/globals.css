@@ -58,3 +58,7 @@
 .player {
   z-index: 10000;
 }
+
+.print .hide-on-print {
+  display: none;
+}
