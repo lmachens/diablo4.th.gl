@@ -9,7 +9,8 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<!--If lmachens want to link linkedin -->
+<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 <!-- Not open in the GitHub Need to go in the Discord -->
 <!-- [![Issues][issues-shield]][issues-url] -->
 
