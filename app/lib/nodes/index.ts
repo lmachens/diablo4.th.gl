@@ -9,6 +9,7 @@ import { chestsT1 } from "./chests_t1";
 import { chestsT2 } from "./chests_t2";
 import { chestsT3 } from "./chests_t3";
 import { dungeons } from "./dungeons";
+import { events } from "./events";
 import { harbingers } from "./harbingers";
 import { healers } from "./healers";
 import { highValueTargets } from "./high_value_targets";
@@ -43,6 +44,7 @@ export const staticNodes = {
   waypoints,
   campaignQuests,
   sideQuests,
+  events,
 } as const;
 
 export type NODE_TYPE = keyof typeof staticNodes | keyof typeof spawnNodes;

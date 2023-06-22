@@ -14,7 +14,6 @@ import {
 import { useDict } from "./(i18n)/i18n-provider";
 import Filters from "./filters";
 import Helltide from "./helltide";
-import Menu from "./menu";
 import useFilters from "./use-filters";
 
 export default function Search() {
@@ -134,7 +133,7 @@ export default function Search() {
               <path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z" />
             </svg>
           </button>
-          <div className="absolute top-full w-full md:w-fit md:top-0 md:left-full md:ml-2 pointer-events-none">
+          <div className="absolute top-full w-full md:w-fit md:top-0 md:left-full md:ml-2">
             {globalSettingsStore.showTimers && <Helltide />}
           </div>
           <div
@@ -144,7 +143,6 @@ export default function Search() {
           </div>
         </div>
       )}
-      <Menu />
     </>
   );
 }

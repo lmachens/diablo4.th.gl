@@ -1,7 +1,7 @@
 {
   "meta": {
     "subtitle": "Mapa de Diablo 4",
-    "description": "¡Maximiza tu experiencia de juego en Diablo 4 en Sancturay con este mapa de Diablo 4 de código abierto! Descubre ubicaciones, altares, sótanos, mazmorras, puntos de referencia y más."
+    "description": "¡Maximiza tu experiencia de juego en Diablo 4 en Sanctuary con este mapa de Diablo 4 de código abierto! Descubre ubicaciones, altares, sótanos, mazmorras, puntos de referencia y más."
   },
   "menu": {
     "patronInfo": "Deshazte de los anuncios y apóyame en Patreonn",
@@ -42,7 +42,8 @@
     "harbingers": "Harbingers",
     "highValueTargets": "High Value Targets",
     "sideQuests": "Misiones secundarias",
-    "campaignQuests": "Misiones de la campaña"
+    "campaignQuests": "Misiones de la campaña",
+    "events": "Eventos"
   },
   "helltide": {
     "inProgress": "Marea Sangrienta en progreso",

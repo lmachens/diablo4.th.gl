@@ -1,7 +1,7 @@
 {
   "meta": {
     "subtitle": "Diablo 4 Map",
-    "description": "Maximize your Diablo 4 gameplay in Sancturay with this Open Source Diablo 4 map! Discover locations, altars, cellars, dungeons, waypoints & more."
+    "description": "Maximize your Diablo 4 gameplay in Sanctuary with this Open Source Diablo 4 map! Discover Helltide Chests, Altars of Lilith and more with real-time position tracking."
   },
   "menu": {
     "patronInfo": "Get rid of ads and support me on Patreon",
@@ -42,7 +42,8 @@
     "harbingers": "Harbingers",
     "highValueTargets": "High Value Targets",
     "sideQuests": "Side Quests",
-    "campaignQuests": "Campaign Quests"
+    "campaignQuests": "Campaign Quests",
+    "events": "Events"
   },
   "helltide": {
     "inProgress": "Helltide In Progress",

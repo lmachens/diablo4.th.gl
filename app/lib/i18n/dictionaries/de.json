@@ -1,7 +1,7 @@
 {
   "meta": {
     "subtitle": "Diablo 4 Karte",
-    "description": "Maximiere dein Diablo 4-Gameplay in Sancturay mit dieser Open Source Diablo 4 Karte! Entdecke Orte, Altäre, Verließe, Dungeons, Wegpunkte und mehr."
+    "description": "Maximiere dein Diablo 4-Gameplay in Sanctuary mit dieser Open Source Diablo 4 Karte! Entdecke Orte, Altäre, Verließe, Dungeons, Wegpunkte und mehr."
   },
   "menu": {
     "patronInfo": "Entferne die Werbung und unterstütze mich",
@@ -42,7 +42,8 @@
     "harbingers": "Harbingers",
     "highValueTargets": "High Value Targets",
     "sideQuests": "Nebenquests",
-    "campaignQuests": "Kampagnenquests"
+    "campaignQuests": "Kampagnenquests",
+    "events": "Events"
   },
   "helltide": {
     "inProgress": "Helltide ist aktiv",

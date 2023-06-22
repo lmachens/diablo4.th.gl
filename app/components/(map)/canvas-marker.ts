@@ -43,7 +43,7 @@ leaflet.Canvas.include({
     ctx.scale(scale, scale);
     const path2D = new Path2D(icon.path);
 
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = "strokeColor" in icon ? icon.strokeColor : "black";
     ctx.lineWidth = icon.lineWidth;
     ctx.fillStyle = icon.color;
 

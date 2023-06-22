@@ -4,6 +4,7 @@ import Map from "@/app/components/(map)/map";
 import Nodes from "@/app/components/(map)/nodes";
 import Territories from "@/app/components/(map)/territories";
 import Tiles from "@/app/components/(map)/tiles";
+import Menu from "@/app/components/menu";
 import Search from "@/app/components/search";
 import SearchParams from "@/app/components/search-params";
 import { DEFAULT_LOCALE, LOCALES, loadDictionary } from "@/app/lib/i18n";
@@ -46,10 +47,11 @@ export default function App() {
         <Nodes />
         <Player />
         <TraceLine />
+        <Search />
       </Map>
+      <Menu />
       <SearchParams />
       <Ads />
-      <Search />
     </I18NProvider>
   );
 }
