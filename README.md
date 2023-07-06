@@ -135,9 +135,6 @@ Project Link: [https://github.com/lmachens/diablo4.th.gl](https://github.com/lma
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-***
-_[❤️](https://github.com/NoNameTrademark)_
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
