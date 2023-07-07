@@ -87,7 +87,7 @@ Join the [Discord](https://discord.com/invite/NTZu8Px) to get the latest news an
 ## Roadmap
 
 - [x] Real-time player position tracking
-- [ ] iscovery of nodes for multiple characters
+- [x] Discovery of nodes for multiple characters
 - [ ] Customizable appearance, including icon sizes
 - [ ] Addition of more nodes such as World Bosses and Strongholds
 - [ ] And much more
